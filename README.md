@@ -9,7 +9,7 @@ Seaborn, Polars, Pandas, Numpy, Pyarrow
 # Installation
 Use regular pip install:
 ```
-pip install seaborn_polars
+pip install seaborn_polars pandas numpy polars seaborn pyarrow
 ```
 Alternatively, clone this repository.
 
