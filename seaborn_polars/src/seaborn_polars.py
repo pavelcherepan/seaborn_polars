@@ -13,19 +13,20 @@ def seaborn_polars(func: Callable[[Any], Any]):
     
     @singledispatch
     def wrapper(data: Union[pd.DataFrame, NDArray[Any]], *args, **kwargs):
-        func(data, *args, **kwargs)
+        return func(data, *args, **kwargs)
         
     @wrapper.register
     def _(data: pl.DataFrame, *args, **kwargs):
         temp = deepcopy(data).to_pandas()
-        func(temp, *args, **kwargs)
+        return func(temp, *args, **kwargs)
     
     @wrapper.register
     def _(data: pl.LazyFrame, *args, **kwargs):
         temp = deepcopy(data).collect().to_pandas()
-        func(temp, *args, **kwargs)
+        res = func(temp, *args, **kwargs)
         del(temp)
         gc.collect()
+        return res
         
     return wrapper
 
