@@ -11,7 +11,15 @@ Use regular pip install:
 ```
 pip install seaborn_polars pandas numpy polars seaborn pyarrow
 ```
-Alternatively, clone this repository.
+
+Install from the main branch on GitHub:
+```
+pip install pip install "git+https://github.com/pavelcherepan/seaborn_polars#egg=seaborn_polars"
+```
+
+You may need to run `pip install --upgrade pip` first.
+
+Alternatively, clone this repository and run `pip install .` from the project root directory.
 
 # Usage
 The package is a wrapper around seaborn plotting functions allowing to use Polars DataFrames and LazyFrames with the same syntax as when using Pandas DataFrames.
