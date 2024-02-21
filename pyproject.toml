@@ -1,2 +1,48 @@
+[project]
+name = "seaborn_polars"
+version = "0.0.2.6"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.8"
+license = {text = "MIT license"}
+dependencies = [
+  "numpy",
+  "pandas",
+  "polars",
+  "seaborn",
+]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+]
+
+[tool.setuptools]
+package-dir = {"" = "seaborn_polars/src"}
+py-modules = ["seaborn_polars"]
+
+# adapted from https://tox.wiki/en/latest/example/package.html
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+  "cython>=0.29",
+  "setuptools >= 35.0.2",
+  "setuptools_scm >= 2.0.0, <3",
+]
+
 [tool.ruff]
 line-length = 120
